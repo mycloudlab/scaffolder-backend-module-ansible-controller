@@ -18,6 +18,7 @@ export function createAnsibleControllerJobTemplateLaunchAction(options: {
   // For more information on how to define custom actions, see
   //   https://backstage.io/docs/features/software-templates/writing-custom-actions
   return createTemplateAction<{
+    controller: string;
     job_template: string;
     extra_vars: any;
   }>({
@@ -48,8 +49,6 @@ export function createAnsibleControllerJobTemplateLaunchAction(options: {
     },
     async handler(ctx) {
 
-
-      console.log(ctx.input);
       let configData = options.config.getConfigArray('integrations.ansible-controller');
       let controllerData = configData.filter(config => config.get("name") == ctx.input.controller);
 

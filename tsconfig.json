@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "outDir": "../../dist-types/dynamic-plugins-root/scaffolder-backend-module-ansible-controller/src",
+      "declaration": true,
+      "declarationDir": "../../dist-types/dynamic-plugins-root/scaffolder-backend-module-ansible-controller/src",
+      "emitDeclarationOnly": true,
+      "skipLibCheck": true
+    }
+  }
