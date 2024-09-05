@@ -27,11 +27,13 @@
     "fix": "backstage-cli repo fix --publish"
   },
   "dependencies": {
-    "@backstage/backend-plugin-api": "0.7.0",
-    "@backstage/plugin-scaffolder-node": "^0.4.8"
+    "@backstage/backend-dynamic-feature-service": "^0.3.2",
+    "@backstage/backend-plugin-api": "^0.8.1",
+    "@backstage/core-plugin-api": "^1.9.3",
+    "@backstage/plugin-scaffolder-node": "^0.4.10",
+    "cross-fetch": "^4.0.0"
   },
   "devDependencies": {
-    
     "@backstage/backend-common": "^0.23.3",
     "@backstage/cli": "^0.26.11",
     "typescript": "^5.5.4"
