@@ -1,0 +1,46 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: ansible-integration
+  title: Ansible integration
+  description: RHDH ansible integration
+  tags:
+    - ansible
+spec:
+  owner: janus-authors
+  type: service
+
+  parameters:
+    - title: Fill parameters 
+      properties:
+        execution_count:
+          title: execution_count
+          type: number
+          description: inform extra_vars execution_count
+        fail_execution:
+          title: Fail execution
+          type: boolean
+          description: fail_execution
+
+  steps:
+    - id: call-ansible
+      name: Calling ansible to launch
+      action: ansible-controller:job_template:launch
+      input:
+        controller: my-controller
+        job_template: Demo Job Template
+        extra_vars:
+          execution_count: ${{ parameters.execution_count }}
+          fail_execution: ${{ parameters.fail_execution }}
+
+    - id: debug-output
+      name: debug-call-ansible
+      action: debug:log
+      input:
+        message: ${{ steps['call-ansible'].output | dump }}
+
+    - id: debug-artifacts
+      name: debug-artifacts-call-ansible
+      action: debug:log
+      input:
+        message: ${{ steps['call-ansible'].output.job.artifacts | dump }}

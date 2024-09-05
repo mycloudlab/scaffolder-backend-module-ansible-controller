@@ -1,0 +1,25 @@
+---
+- name: Playbook test integration with RHDH
+  hosts: localhost
+  gather_facts: false
+  tasks:
+
+    - name: Perform step and log every second
+      ansible.builtin.pause:
+        seconds: 1
+      register: result
+      until: result.stdout.find("all systems go") != -1
+      retries: "{{execution_count}}"
+      delay: 1
+      ignore_errors: true
+      
+    - name: Setting stats (not aggregating)
+      ansible.builtin.set_stats:
+        data:
+          the_answer: 42
+        aggregate: no
+
+    - name: Task completed
+      when: fail_execution
+      ansible.builtin.fail:
+        msg: "stopped"
