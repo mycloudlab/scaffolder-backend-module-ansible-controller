@@ -1,5 +1,8 @@
 # @mycloudlab/scaffolder-backend-module-ansible-controller
 
+![NPM Version](https://img.shields.io/npm/v/%40mycloudlab%2Fscaffolder-backend-module-ansible-controller)
+
+
 Plugin used to integrate ansible with backstage.
 
 This plugin allows the execution of an ansible job-template from an action in the template step.
