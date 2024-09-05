@@ -4,7 +4,22 @@ Plugin used to integrate ansible with backstage.
 
 This plugin allows the execution of an ansible job-template from an action in the template step.
 
+## install on RHDH
 
+Check integrity version using command:
+```bash
+# please change <version> to especific version
+curl -sL https://registry.npmjs.org/@mycloudlab/scaffolder-backend-module-ansible-controller/-/scaffolder-backend-module-ansible-controller-<version>.tgz | shasum -a 512
+
+```
+
+```yaml
+# add entry dynamic-plugins-rhdh config map
+    plugins:
+      - package: '@mycloudlab/scaffolder-backend-module-ansible-controller@0.1.0'
+        integrity: 'sha512-<integrity of before command>'
+        disabled: false   
+```
 
 ## how to use
 
