@@ -9,15 +9,15 @@ This plugin allows the execution of an ansible job-template from an action in th
 Check integrity version using command:
 ```bash
 # please change <version> to especific version
-curl -sL https://registry.npmjs.org/@mycloudlab/scaffolder-backend-module-ansible-controller/-/scaffolder-backend-module-ansible-controller-<version>.tgz | shasum -a 512
-
+curl -sL https://registry.npmjs.org/@mycloudlab/scaffolder-backend-module-ansible-controller/<version> | jq '.dist.integrity' -r
 ```
 
 ```yaml
 # add entry dynamic-plugins-rhdh config map
+# please change <version> to especific version
     plugins:
-      - package: '@mycloudlab/scaffolder-backend-module-ansible-controller@0.1.0'
-        integrity: 'sha512-<integrity of before command>'
+      - package: '@mycloudlab/scaffolder-backend-module-ansible-controller@<version>'
+        integrity: '<integrity of before command>'
         disabled: false   
 ```
 
