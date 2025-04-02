@@ -5,5 +5,8 @@
  * @packageDocumentation
  */
 export * from './actions';
-import { BackendDynamicPluginInstaller } from '@backstage/backend-dynamic-feature-service';
-export declare const dynamicPluginInstaller: BackendDynamicPluginInstaller;
+/**
+ * A backend module that registers the action into the scaffolder
+ */
+export declare const scaffolderModule: import("@backstage/backend-plugin-api").BackendFeatureCompat;
+export default scaffolderModule;
